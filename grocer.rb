@@ -126,9 +126,10 @@ def apply_clearance(cart)
    
       if cart[row_index][:clearance] == true 
      
-    price = cart[row_index][:price]
-      clearance_discount = 0.2 * cart[row_index][:price]
- cart[row_index][:price] = (price - clearance_discount).round(2)
+    #price = cart[row_index][:price]
+     # clearance_discount = 0.2 * cart[row_index][:price]
+ cart[row_index][:price] = (cart[row_index][:price] - cart[row_index][:price] * 0.2).round(2)
+ #(price - clearance_discount).round(2)
   
    end
 
@@ -157,7 +158,7 @@ items_with_coupons = apply_coupons(consolidate_cart, coupons)
 final_cart = apply_clearance(items_with_coupons)
  
   while row_index < final_cart.length 
-total += final_cart[row_index][:price] * final_cart[row_index][:count]
+     total += final_cart[row_index][:price] * final_cart[row_index][:count]
         
    row_index += 1
     
